@@ -1,14 +1,23 @@
 <div class="row">
   <div class="col s12 m12">
     <% @statuses.each do |status| %>
-      <div class="card blue-grey darken-1">
+      <div class="card">
         <div class="card-content white-text">
           <span class="card-title"><%= status.user_id %></span>
-          <p><%= status.body %></p>
+          <p class="status-body"><%= status.body %></p>
         </div>
         <div class="card-action">
-          <a href="#">This is a link</a>
-          <a href="#">This is a link</a>
+          <a href="#" class="vertical-align-middle">良いね！</a>
+          <a href="#" class="vertical-align-middle">詳細</a>
+          <span class="status-footer"><i class="material-icons vertical-align-middle">
+          thumb_up
+          </i>0 person like this</span>
+          <span class="status-footer"><i class="material-icons vertical-align-middle">
+          chat_bubble
+          </i>1 comments</span>
+          <span class="status-footer"><i class="material-icons vertical-align-middle">
+          access_time
+          </i>about 1 month ago</span>
         </div>
       </div>
     <% end %>
