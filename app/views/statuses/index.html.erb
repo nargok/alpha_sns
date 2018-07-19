@@ -1,0 +1,8 @@
+<div>
+  <% @statuses.each do |status| %>
+    <div>
+      <p><%= status.user_id %></p>
+      <p><%= status.body %></p>
+    </div>
+  <% end %>
+</div>
