@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   root 'statuses#index'
-  get 'statuses', to: 'statuses#index'
 
-  resources :users
   get 'signup', to: 'users#new'
+  get 'login', to: 'sessions#new'
+  resources :users
+  resource :session, only: [:new, :create, :destroy]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
