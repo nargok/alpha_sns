@@ -17,6 +17,8 @@ class StatusesController < ApplicationController
 
   def show
     @status = Status.find(params[:id])
+    @comment = Comment.new
+    @comments = @status.comments.order(created_at: 'desc')
   end
 
   private

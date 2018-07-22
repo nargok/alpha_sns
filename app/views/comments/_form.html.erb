@@ -1,0 +1,8 @@
+<div class="card">
+  <div class="card-content">
+    <%= form_with(model: [status, comment])  do |form| %>
+      <%= form.text_field :body, placeholder: "コメントを入力してください" %>
+      <%= submit_tag "投稿", class: 'waves-effect waves-light btn' %>
+    <% end %>
+  </div>
+</div>

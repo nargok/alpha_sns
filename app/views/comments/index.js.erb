@@ -1,0 +1,2 @@
+$("#comments_area").html("<%= j(render 'index', { comments: @status.comments.order(created_at: 'desc') }) %>")
+$("input").val('')
