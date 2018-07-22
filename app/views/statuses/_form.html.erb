@@ -1,0 +1,10 @@
+<div class="row">
+  <div class="card">
+    <div class="card-content">
+      <%= form_for @status do |form| %>
+        <%= form.text_area :body, class: 'materialize-textarea', placeholder: "今何してる？" %>
+        <%= submit_tag "投稿", class: 'waves-effect waves-light btn' %>
+      <% end %>
+    </div>
+  </div>
+</div>
