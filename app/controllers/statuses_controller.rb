@@ -15,6 +15,10 @@ class StatusesController < ApplicationController
     end
   end
 
+  def show
+    @status = Status.find(params[:id])
+  end
+
   private
 
   def status_params

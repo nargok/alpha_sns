@@ -1,8 +1,11 @@
 <% if current_user %>
   <ul class="side-nav fixed" style="left: 0px">
-    <li><i class="material-icons vertical-align-middle">
-      menu
-    </i><a href="#!" class="inline-block vertical-align-middle">ニュースフィード</a></li>
+    <li>
+      <i class="material-icons vertical-align-middle">
+        menu
+      </i>
+      <%= link_to "ニュースフィード", root_path, class: 'inline-block vertical-align-middle' %>
+    </li>
     <li><i class="material-icons vertical-align-middle">
       search
     </i><a href="#!" class="vertical-align-middle">友達を検索</a></li>
