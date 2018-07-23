@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
+  before_action :set_user, only: [:show, :edit, :update]
 
   def new
     @user = User.new
@@ -17,9 +18,29 @@ class UsersController < ApplicationController
     end
   end
 
+  def show
+  end
+
+  def edit
+  end
+
+  def update
+    # @user.assign_attributes(user_params)
+    if @user.update(user_params)
+      redirect_to user_path(@user)
+    else
+      # TODO 入力エラーのメッセージを出力する
+      render :edit
+    end
+  end
+
   private
 
+  def set_user
+    @user = User.find(params[:id])
+  end
+
   def user_params
-    params.require(:user).permit(:email, :password, :password_confirmation)
+    params.require(:user).permit(:email, :password, :password_confirmation, :name)
   end
 end
