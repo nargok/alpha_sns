@@ -5,7 +5,7 @@
     <% @statuses.each do |status| %>
       <div class="card">
         <div class="card-content white-text">
-          <span class="card-title"><%= status.user_id %></span>
+          <span class="card-title"><%= status.user.name %></span>
           <p class="status-body"><%= status.body %></p>
         </div>
         <div class="card-action">

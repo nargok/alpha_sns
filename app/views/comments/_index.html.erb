@@ -2,7 +2,7 @@
   <% comments.each do |comment| %>
     <li class="collection-item avatar">
       <i class="material-icons circle">folder</i>
-      <span class="title"><%= comment.user_id %></span>
+      <span class="title"><%= comment.user.name %></span>
       <p><%= comment.body %></p>
     </li>
   <% end %>

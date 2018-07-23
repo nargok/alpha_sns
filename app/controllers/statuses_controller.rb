@@ -1,6 +1,6 @@
 class StatusesController < ApplicationController
   def index
-    @statuses = Status.all.order(created_at: 'desc').includes(:comments)
+    @statuses = Status.all.order(created_at: 'desc').includes(:user).includes(:comments)
     @status = Status.new
   end
 
