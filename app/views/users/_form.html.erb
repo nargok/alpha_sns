@@ -13,6 +13,15 @@
 
   <div class="form-group">
     <div class="control-label col-sm-2">
+      <%= form.label :name %>
+    </div>
+    <div class="col-sm-12">
+      <%= form.text_field :name, class: 'form-control', placeholder: "Enter User name" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="control-label col-sm-2">
       <%= form.label :email %>
     </div>
     <div class="col-sm-12">

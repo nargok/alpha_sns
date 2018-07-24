@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     # save機能
     if @user.save
-      session[:user_id] = user.id
+      session[:user_id] = @user.id
       redirect_to root_path
     else
       flash[:danger] = "ログインに失敗しました"
