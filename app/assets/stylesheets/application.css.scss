@@ -55,3 +55,24 @@ ul.side-nav.fixed {
 .vertical-align-middle {
   vertical-align: middle;
 }
+
+.card-image {
+  padding: 20px;
+}
+
+.card.horizontal .card-image img {
+  border-radius: 50%;
+}
+
+.comment-img-circle {
+  position: absolute;
+  width: 45px;
+  height: 42px;
+  left: 10px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.comment-img-circle img {
+  border-radius: 50%;
+}
