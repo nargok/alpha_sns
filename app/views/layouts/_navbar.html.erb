@@ -2,7 +2,9 @@
   <div class="nav-wrapper">
     <a href="#" class="brand-logo">Ghost SNS</a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><%= link_to current_user.name, user_path(current_user) %></li>
+      <% if current_user %>
+        <li><%= link_to current_user.name, user_path(current_user) %></li>
+      <% end %>
     </ul>
   </div>
 </nav>

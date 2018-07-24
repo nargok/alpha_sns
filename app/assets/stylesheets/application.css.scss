@@ -38,6 +38,19 @@ ul.side-nav.fixed {
   position: absolute;
 }
 
+.waves-effect {
+  display: inline-flex;
+}
+
+.waves-effect input{
+  color: #FFF;
+}
+
+
+.btn {
+  color: #FFF;
+}
+
 // アイコンとメニューの高さをそろえる
 .vertical-align-middle {
   vertical-align: middle;
