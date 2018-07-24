@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
-  before_action :set_user, only: [:show, :edit, :update]
+  before_action :set_user, only: [:show, :edit, :password_edit, :update]
 
   def new
     @user = User.new
@@ -24,8 +24,10 @@ class UsersController < ApplicationController
   def edit
   end
 
+  def password_edit
+  end
+
   def update
-    # @user.assign_attributes(user_params)
     if @user.update(user_params)
       redirect_to user_path(@user)
     else
