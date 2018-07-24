@@ -3,6 +3,8 @@ class User < ApplicationRecord
   # TODO usersテーブルに外部キーの設定を追加する
   # has_many :statuses, depentent: :destory
   has_many :comments, dependent: :destroy
+  has_many :likes
+  has_many :statuses, through: :likes
 
   validates :password, length: { minimum: 8 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
