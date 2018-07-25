@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new'
   get 'login', to: 'sessions#new'
   get '/users/:id/password_edit', to: 'users#password_edit', as: 'password_change'
+  get 'like', to: 'statuses#like'
   resources :users
   resource :session, only: [:new, :create, :destroy]
   resources :statuses, only: [:index, :create, :show] do

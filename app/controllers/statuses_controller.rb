@@ -1,6 +1,6 @@
 class StatusesController < ApplicationController
   def index
-    @statuses = Status.all.order(created_at: 'desc').includes(:user).includes(:comments)
+    @statuses = Status.all.order(created_at: 'desc').includes(:user).includes(:comments).includes(:likes)
     @status = Status.new
   end
 
@@ -19,6 +19,13 @@ class StatusesController < ApplicationController
     @status = Status.find(params[:id])
     @comment = Comment.new
     @comments = @status.comments.order(created_at: 'desc')
+  end
+
+  def like
+    @status = Status.find(params[:id])
+    @status.likes << Like.new(user_id: current_user.id)
+    @status.save
+    redirect_to root_path
   end
 
   private

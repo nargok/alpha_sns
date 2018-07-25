@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2018_07_24_230514) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["status_id", "user_id"], name: "index_likes_on_status_id_and_user_id", unique: true
     t.index ["status_id"], name: "index_likes_on_status_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
