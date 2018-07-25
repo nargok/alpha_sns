@@ -1,6 +1,6 @@
 <nav>
   <div class="nav-wrapper">
-    <a href="#" class="brand-logo">Ghost SNS</a>
+    <%= link_to "Ghost SNS", root_path, class: 'brand-logo' %>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <% if current_user %>
         <li><%= link_to current_user.name, user_path(current_user) %></li>
