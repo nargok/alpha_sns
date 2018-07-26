@@ -13,12 +13,13 @@
 
   </div>
 
+  <%= render partial: 'comments/form', locals: { comment: @comment, status: @status } %>
+
   <div>
     <p>コメント一覧</p>
   </div>
-
   <div id="comments_area">
     <%= render partial: 'comments/index', locals: { comments: @comments } %>
   </div>
-  <%= render partial: 'comments/form', locals: { comment: @comment, status: @status } %>
+
 </div>

@@ -1,6 +1,6 @@
 class StatusesController < ApplicationController
   def index
-    @statuses = Status.all.order(created_at: 'desc').includes(:user).includes(:comments).includes(:likes)
+    @statuses = Status.order(created_at: 'desc').includes(:user).includes(:comments).includes(:likes).page params[:page]
     @status = Status.new
   end
 
@@ -18,7 +18,7 @@ class StatusesController < ApplicationController
   def show
     @status = Status.find(params[:id])
     @comment = Comment.new
-    @comments = @status.comments.order(created_at: 'desc')
+    @comments = @status.comments.order(created_at: 'desc').page params[:page]
   end
 
   def like
