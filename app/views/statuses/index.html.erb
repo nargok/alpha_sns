@@ -11,15 +11,24 @@
         <div class="card-action">
           <%= link_to '良いね！', { action: :like, id: status }, class: 'vertical-align-middle' %>
           <%= link_to '詳細', status_path(status), class: 'vertical-align-middle' %>
-          <span class="status-footer"><i class="material-icons vertical-align-middle">
-          thumb_up
-          </i><%= status.likes.length %> person like this</span>
-          <span class="status-footer"><i class="material-icons vertical-align-middle">
-          chat_bubble
-          </i><%= status.comments.length %> comments</span>
-          <span class="status-footer"><i class="material-icons vertical-align-middle">
-          access_time
-          </i>about 1 month ago</span>
+          <span class="status-footer">
+            <i class="material-icons vertical-align-middle">
+              thumb_up
+            </i>
+            <%= status.likes.length %> person like this
+          </span>
+          <span class="status-footer">
+            <i class="material-icons vertical-align-middle">
+              chat_bubble
+            </i>
+            <%= status.comments.length %> comments
+          </span>
+          <span class="status-footer">
+            <i class="material-icons vertical-align-middle">
+              access_time
+            </i>
+            <%= time_ago_in_words(status.created_at) %> ago
+          </span>
         </div>
       </div>
     <% end %>
