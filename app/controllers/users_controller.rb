@@ -36,6 +36,15 @@ class UsersController < ApplicationController
     end
   end
 
+  def friend_request
+    @user = User.find(params[:id])
+    friendship = Friendship.new
+    friendship.user_id = current_user.id
+    friendship.friend_id = @user.id
+    friendship.save
+    redirect_to user_path(@user)
+  end
+
   private
 
   def set_user
