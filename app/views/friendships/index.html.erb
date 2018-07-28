@@ -18,7 +18,7 @@
           <% if request_is_in_progress?(friend.id) %>
             <td></td>
           <% else %>
-            <td><%= link_to '友達を解除', users_path, class: 'btn btn-remove' %></td>
+            <td><%= link_to '友達を解除', friendship_path(friend), method: :delete, class: 'btn btn-remove', :data => {:confirm => "本当に解除しますか？"} %></td>
           <% end %>
         </tr>
       <% end %>
