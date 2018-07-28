@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :password_edit, :update]
 
   def index
-    @users = User.all_except(current_user).order(created_at: 'desc')
+    @users = User.all_except(current_user).order(created_at: 'desc').page(params[:page])
     @form = UserSearchForm.new
   end
 
