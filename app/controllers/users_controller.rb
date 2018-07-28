@@ -2,6 +2,11 @@ class UsersController < ApplicationController
   skip_before_action :require_login, only: [:new, :create]
   before_action :set_user, only: [:show, :edit, :password_edit, :update]
 
+  def index
+    @users = User.all_except(current_user).order(created_at: 'desc')
+    @form = UserSearchForm.new
+  end
+
   def new
     @user = User.new
   end
@@ -45,6 +50,10 @@ class UsersController < ApplicationController
     friendship.friend_id = @user.id
     friendship.save
     redirect_to user_path(@user)
+  end
+
+  def search
+
   end
 
   private

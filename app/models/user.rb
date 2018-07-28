@@ -13,4 +13,9 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
   validates :email, uniqueness: true
   validates :name, presence: true
+
+  paginates_per 5
+
+  scope :all_except, -> (user) { where.not(id: user) }
+
 end

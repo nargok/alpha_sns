@@ -1,0 +1,41 @@
+<div class="card">
+  <div class="card-content">
+    <table class="striped">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>is Friend?</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+          <% if friend_request_is_requested?(current_user.id, user.id) %>
+            <% if friend_request_is_approved?(current_user.id, user.id) %>
+              <td>友達です</td>
+              <td>
+                <%= link_to '友達を解除', friendship_path(Friendship.find_friendship(current_user.id, user.id)),
+                            method: :delete, class: 'btn btn-remove', :data => {:confirm => "本当に解除しますか？"} %>
+              </td>
+            <% elsif friend_request_is_rejected?(current_user.id, user.id) %>
+              <td></td>
+              <td>申請否認されました</td>
+            <% else %>
+              <td></td>
+              <td>申請処理中です</td>
+            <% end %>
+          <% else %>
+            <td></td>
+            <td>
+              <%= link_to '友達になる', {action: :friend_request, id: user.id }, class: 'waves-effect waves-light btn' %>
+            </td>
+          <% end %>
+        </tr>
+      <% end  %>
+      </tbody>
+    </table>
+  </div>
+</div>

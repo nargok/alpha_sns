@@ -10,8 +10,8 @@ class Friendship < ApplicationRecord
                   AND accept    = ?
                   AND reject    = ?"
 
-  def self.requested(user_id, friend_id)
-    Friendship.where("user_id = ? AND friend_id = ?", user_id, friend_id)
+  def self.requested(id1, id2)
+    Friendship.where("user_id = ? AND friend_id = ?", id1, id2)
   end
 
 
@@ -22,4 +22,10 @@ class Friendship < ApplicationRecord
   def self.rejected(user_id, friend_id)
     Friendship.where(SEARCH_CONDITION, user_id, friend_id, nil, true)
   end
+
+  def self.find_friendship(id1, id2)
+    Friendship.find_by(user_id: id1, friend_id: id2) ||
+    Friendship.find_by(user_id: id2, friend_id: id1)
+  end
+
 end
