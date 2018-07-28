@@ -4,10 +4,8 @@
   <%= link_to '[ ユーザ情報を編集する ]', edit_user_path(@user) %>
   <%= link_to '[ パスワードを変更する ]', password_change_path(@user) %>
 <% else %>
-  <!--  TODO 友達申請がappceptされたときは友達承認済、と表示する-->
-  <!--  TODO 友達申請がrejectされたときは否認されている、と表示する-->
   <% if friend_request_is_requested?(current_user.id, @user.id) %>
-    <%= button_tag '友達申請中です', class: 'btn', disabled: true%>
+    <%= button_tag "#{get_status(@request)}", class: 'btn', disabled: true%>
   <% else %>
     <%= link_to '友達になる', { action: :friend_request, id: @user.id }, class: 'waves-effect waves-light btn' %>
   <% end %>
