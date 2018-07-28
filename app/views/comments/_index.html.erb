@@ -1,7 +1,7 @@
 <ul class="collection">
   <% comments.each do |comment| %>
     <li class="collection-item avatar">
-      <div class="comment-img-circle">
+      <div class="avatar-img-circle">
         <%= gravatar_for(comment.user, size:50) %>
       </div>
       <span class="title"><%= comment.user.name %></span>

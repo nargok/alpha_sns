@@ -1,4 +1,6 @@
 class Friendship < ApplicationRecord
+  belongs_to :user
+  belongs_to :friend, :class_name => 'User'
   validates :user_id, uniqueness: { scope: [:friend_id] }
 
   SEARCH_CONDITION = "user_id   = ?
@@ -10,9 +12,10 @@ class Friendship < ApplicationRecord
     Friendship.where("user_id = ? AND friend_id = ?", user_id, friend_id)
   end
 
-  def self.accepted(user_id, friend_id)
-    Friendship.where(SEARCH_CONDITION, user_id, friend_id, true, nil)
-  end
+
+  scope :accepted, -> { where(accept: true) }
+
+  scope :rejected, -> { where(reject: true) }
 
   def self.rejected(user_id, friend_id)
     Friendship.where(SEARCH_CONDITION, user_id, friend_id, nil, true)

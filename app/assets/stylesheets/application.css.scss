@@ -64,7 +64,7 @@ ul.side-nav.fixed {
   border-radius: 50%;
 }
 
-.comment-img-circle {
+.avatar-img-circle {
   position: absolute;
   width: 45px;
   height: 42px;
@@ -73,6 +73,10 @@ ul.side-nav.fixed {
   vertical-align: middle;
 }
 
-.comment-img-circle img {
+.avatar-img-circle img {
   border-radius: 50%;
+}
+
+.btn-remove {
+  background-color: orange;
 }
