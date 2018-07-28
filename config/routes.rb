@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'statuses#index'
 
   get 'signup', to: 'users#new'
+  post 'search', to: 'users#search'
   get 'search', to: 'users#search'
   get 'login', to: 'sessions#new'
   get '/users/:id/password_edit', to: 'users#password_edit', as: 'password_change'

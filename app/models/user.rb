@@ -18,4 +18,8 @@ class User < ApplicationRecord
 
   scope :all_except, -> (user) { where.not(id: user) }
 
+  def self.search(string)
+    where("name like'%" + string + "%'")
+  end
+
 end

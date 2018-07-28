@@ -53,7 +53,10 @@ class UsersController < ApplicationController
   end
 
   def search
-
+    @keyword = params[:user_search_form][:name]
+    @users = User.search(@keyword).page(params[:page])
+    @form = UserSearchForm.new
+    render 'index'
   end
 
   private
