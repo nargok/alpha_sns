@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 
   def show
     @request = Friendship.find_by(user_id: current_user.id, friend_id: @user.id)
+    @request = Friendship.find_by(user_id: @user.id, friend_id: current_user.id) if @request.nil?
   end
 
   def edit
