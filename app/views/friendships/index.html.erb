@@ -13,7 +13,7 @@
       <tbody>
       <% @friends.each do |friend| %>
         <tr>
-          <td><%= friend.friend.name %></td>
+          <td><%= get_friend_name(friend) %></td>
           <% if request_is_in_progress?(friend.id) %>
             <td>友達申請中です</td>
             <td></td>

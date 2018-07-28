@@ -1,6 +1,6 @@
 class FriendshipsController < ApplicationController
   def index
-    @friends = current_user.friendships.order(created_at: 'desc')
+    @friends = Friendship.where("user_id = ? or friend_id = ?", current_user.id, current_user.id).order(created_at: 'desc')
   end
 
   def approval_list
