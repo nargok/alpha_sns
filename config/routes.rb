@@ -6,6 +6,10 @@ Rails.application.routes.draw do
   get '/users/:id/password_edit', to: 'users#password_edit', as: 'password_change'
   get 'like', to: 'statuses#like'
   get 'friend_request', to: 'users#friend_request'
+  get 'friend_request_approval', to: 'friendships#approval_list'
+  get 'approve', to: 'friendships#approve'
+  get 'reject', to: 'friendships#reject'
+
 
   resources :users
   resource :session, only: [:new, :create, :destroy]

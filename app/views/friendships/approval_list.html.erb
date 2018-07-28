@@ -1,0 +1,25 @@
+<h1>友達承認をする</h1>
+<div class="card">
+  <div class="card-content">
+    <table class="striped">
+      <thead>
+      <tr>
+        <th>Name</th>
+        <th>Action</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <% @requests.each do |request| %>
+        <tr>
+          <td><%= request.user.name %></td>
+          <td>
+            <%= link_to "承認する", { action: :approve, id: request.id }, class: 'btn btn-approve' %>
+            <%= link_to "否認する", { action: :reject, id: request.id }, class: 'btn btn-reject' %>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

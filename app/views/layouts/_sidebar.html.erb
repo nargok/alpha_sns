@@ -6,13 +6,21 @@
       </i>
       <%= link_to "ニュースフィード", root_path, class: 'inline-block vertical-align-middle' %>
     </li>
-    <li><i class="material-icons vertical-align-middle">
-      search
-    </i><a href="#!" class="vertical-align-middle">友達を検索</a></li>
-    <li><i class="material-icons vertical-align-middle">
-      person
-    </i>
+    <li>
+      <i class="material-icons vertical-align-middle">
+        search
+      </i>
+      <%= link_to "友達を検索", root_path, class: 'inline-block vertical-align-middle' %>
+    </li>
+      <i class="material-icons vertical-align-middle">
+        person
+      </i>
       <%= link_to '友達をみる', friendships_path, class: 'vertical-align-middle' %>
+    </li>
+    <li><i class="material-icons vertical-align-middle">
+      done
+    </i>
+      <%= link_to '友達承認', friend_request_approval_path, class: 'vertical-align-middle' %>
     </li>
     <li>
       <i class="material-icons vertical-align-middle">
