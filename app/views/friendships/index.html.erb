@@ -14,11 +14,10 @@
       <% @friends.each do |friend| %>
         <tr>
           <td><%= get_friend_name(friend) %></td>
+          <td><%= get_status(friend) %></td>
           <% if request_is_in_progress?(friend.id) %>
-            <td>友達申請中です</td>
             <td></td>
           <% else %>
-            <td>友達です</td>
             <td><%= link_to '友達を解除', users_path, class: 'btn btn-remove' %></td>
           <% end %>
         </tr>

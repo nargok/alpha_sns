@@ -13,4 +13,14 @@ module FriendshipsHelper
     end
   end
 
+  def get_status(friendship)
+    if friendship.accept == true
+      return "友達です"
+    elsif friendship.reject == true
+      return "友達申請が否認されました"
+    else
+      return "申請処理中です"
+    end
+  end
+
 end
