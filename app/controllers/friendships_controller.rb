@@ -2,12 +2,11 @@ class FriendshipsController < ApplicationController
   before_action :set_request, only: [:approve, :reject, :destroy]
 
   def index
-    friends = Friendship.where("user_id = ? or friend_id = ?", current_user.id, current_user.id).order(created_at: 'desc')
-    @friends = friends.reject{|e| e[:reject] == true }
+    @friends = Friendship.where("user_id = ? or friend_id = ?", current_user.id, current_user.id).order(created_at: 'desc').page params[:page]
   end
 
   def approval_list
-    @requests = Friendship.where(friend_id: current_user.id, accept: nil, reject: nil).order(created_at: 'desc')
+    @requests = Friendship.where(friend_id: current_user.id, accept: nil, reject: nil).order(created_at: 'desc').page params[:page]
   end
 
   def approve

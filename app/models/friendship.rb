@@ -3,6 +3,8 @@ class Friendship < ApplicationRecord
   belongs_to :friend, :class_name => 'User'
   validates :user_id, uniqueness: { scope: [:friend_id] }
 
+  paginates_per 5
+
   SEARCH_CONDITION = "user_id   = ?
                   AND friend_id = ?
                   AND accept    = ?

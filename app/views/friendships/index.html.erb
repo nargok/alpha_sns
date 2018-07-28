@@ -11,7 +11,7 @@
       </thead>
 
       <tbody>
-      <% @friends.each do |friend| %>
+      <% @friends.reject{|e| e[:reject] == true}.each do |friend| %>
         <tr>
           <td><%= get_friend_name(friend) %></td>
           <td><%= get_status(friend) %></td>
@@ -26,3 +26,4 @@
     </table>
   </div>
 </div>
+<%= paginate @friends %>
