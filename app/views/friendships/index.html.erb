@@ -13,7 +13,7 @@
       <tbody>
       <% @friends.each do |friend| %>
         <tr>
-          <td><%= friend.user.name %></td>
+          <td><%= friend.friend.name %></td>
           <td>友達です</td>
           <td><%= link_to '友達を解除', users_path, class: 'btn btn-remove' %></td>
         </tr>
