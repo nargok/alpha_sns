@@ -50,7 +50,7 @@ test:
 #
 production:
   <<: *default
-  host:     us-cdbr-iron-east-04.cleardb.net
+  host: us-cdbr-iron-east-04.cleardb.net
   database: heroku_9b5613ddf3456e4
   username: b9e519a23339f6
   password: <%= ENV['ALPHASNS_DATABASE_PASSWORD'] %>
